@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#eef4f8">
+  <title>Zentrische Streckung – Interaktives Lernblatt</title>
+  <style>
+    :root{--ink:#23354b;--muted:#61758a;--blue:#1c5bbf;--orange:#e3741c;--purple:#7545b5;--paper:#fff;--bg:#eef4f8;--line:#dbe5ed;--shadow:0 8px 28px rgba(38,64,92,.08)}
+    *{box-sizing:border-box}html{font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;color:var(--ink);background:var(--bg)}body{margin:0}button,input{font:inherit}button{cursor:pointer;touch-action:manipulation}button:focus-visible,input:focus-visible{outline:3px solid #a38cd3;outline-offset:3px}
+    main{max-width:1450px;margin:0 auto;padding:30px clamp(16px,3vw,45px) 48px}.crumb{font-size:.86rem;color:#6685a0;margin-bottom:12px}.eyebrow{font-size:.9rem;font-weight:650;color:#61758a;margin:0 0 14px}h1{font-size:clamp(2rem,3.15vw,3rem);letter-spacing:-.04em;margin:0 0 12px;line-height:1.1} .intro{color:#506273;margin:0 0 20px;font-size:1.05rem}
+    .layout{display:grid;grid-template-columns:minmax(245px,285px) minmax(0,1fr);align-items:start;gap:17px}.side,.maincard{background:var(--paper);border:1px solid var(--line);border-radius:15px;box-shadow:var(--shadow)}.side{padding:20px 18px 22px}.side h2{font-size:.97rem;margin:0 0 16px}.slider-line{display:flex;justify-content:space-between;align-items:center;font-size:.96rem;font-weight:700;margin-bottom:9px}.value{color:var(--purple);font-size:1.12rem;font-variant-numeric:tabular-nums}input[type=range]{width:100%;accent-color:var(--purple);cursor:pointer;margin:2px 0 15px;height:25px}.quick{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:6px;margin-bottom:23px}.quick button,.tools button{border:1px solid #d5e0e9;background:#f8fafc;border-radius:8px;color:var(--ink);padding:10px 4px;min-height:39px}.quick button{font-size:.92rem}.quick button.active{border-color:#9869ce;background:#f1e9fa;color:#5d299a;font-weight:700}.legend{font-size:.87rem;line-height:1.6;margin:0 0 17px}.legend b{display:block}.legend .blue{color:var(--blue)}.legend .orange{color:var(--orange)}.help{font-size:.86rem;color:var(--muted);line-height:1.5;margin-bottom:13px}.insight{background:#f5eefb;border-radius:9px;padding:13px 12px;font-size:.87rem;line-height:1.48;min-height:72px;margin:0 0 15px}.rule{font-size:.86rem;line-height:1.55;margin:0}.rule strong{font-weight:750}.side .divider{height:1px;background:#e7edf3;margin:21px 0 17px}.tasktitle{font-weight:750;margin:0 0 9px;font-size:.9rem}.task{font-size:.85rem;line-height:1.55;color:#536a7b;margin:0}.maincard{padding:13px;min-width:0}.tools{display:flex;gap:7px;flex-wrap:wrap;margin:0 0 11px}.tools button{padding:9px 14px;font-size:.88rem}.tools button:hover,.quick button:hover{border-color:#9cb0c2;background:#edf3fa}.plot{position:relative;height:clamp(420px,55vw,670px);min-height:350px;overflow:hidden;background:#fff;border:1px solid #e7edf2;border-radius:6px}.ggb-host{height:100%;width:100%;position:relative}.load{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;flex-direction:column;gap:12px;padding:30px;color:#61758a;background:#fff;z-index:3}.load strong{color:#23354b}.load[hidden]{display:none}.status{padding:10px 2px 0;font-size:.8rem;color:#748596}.footer{font-size:.8rem;margin-top:18px;color:#8291a0}.small{font-size:.75rem;color:#748596}.fullscreen{position:fixed!important;inset:0!important;width:100vw!important;height:100dvh!important;z-index:200;background:#fff;border-radius:0!important;padding:12px!important;overflow:auto}.fullscreen .plot{height:calc(100dvh - 82px)}body.full-active{overflow:hidden}
+    @media(max-width:820px){main{padding:18px 12px 25px}.layout{grid-template-columns:1fr;gap:12px}.side{display:grid;grid-template-columns:1fr 1fr;column-gap:22px;align-items:start}.side h2,.side .divider,.side .tasktitle,.side .task{grid-column:1/-1}.legend{margin-top:3px}.insight{margin-top:2px}.plot{height:60vh;min-height:380px}.maincard{padding:10px}.tools button{padding:8px 11px}}
+    @media(max-width:520px){h1{font-size:2rem}.side{display:block}.plot{height:58vh;min-height:360px}.intro{font-size:.95rem}.tools button{font-size:.82rem}}
+  </style>
+  <script src="https://www.geogebra.org/apps/deployggb.js" defer></script>
+</head>
+<body>
+<main>
+  <div class="crumb">Mathematik · Klasse 9 · Interaktives Lernblatt</div>
+  <p class="eyebrow">Geometrie entdecken</p>
+  <h1>Zentrische Streckung</h1>
+  <p class="intro">Verändere den Streckfaktor und ziehe die blauen Eckpunkte oder das Zentrum Z.</p>
+  <div class="layout">
+    <aside class="side" aria-label="Steuerung und Hinweise">
+      <h2>Entdecken und verändern</h2>
+      <div>
+        <div class="slider-line"><label for="factor">Streckfaktor k</label><output class="value" id="factorValue" for="factor">1,5</output></div>
+        <input id="factor" type="range" min="-3" max="3" step="0.1" value="1.5" aria-label="Streckfaktor k">
+        <div class="quick" aria-label="Streckfaktor schnell einstellen">
+          <button data-k="0.5">0,5</button><button data-k="1">1</button><button data-k="2">2</button><button data-k="-1">−1</button><button data-k="0">0</button>
+        </div>
+      </div>
+      <div>
+        <div class="legend"><b class="blue">Blau: Ausgangsfigur ABC</b><b class="orange">Orange: Bildfigur A′B′C′</b></div>
+        <p class="help">Die gestrichelten Geraden gehen durch Z und die zugehörigen Eckpunkte.</p>
+        <div class="insight" aria-live="polite" id="insight">Die Bildpunkte liegen von Z aus in derselben Richtung. Flächenfaktor: 2,25.</div>
+        <p class="rule">Abstände und Seitenlängen:<br><strong>Faktor |k|</strong><br>Flächeninhalt: <strong>Faktor k²</strong></p>
+      </div>
+      <div class="divider"></div>
+      <p class="tasktitle">Forscherauftrag</p>
+      <p class="task">Vergleiche k = 2 und k = −2. Was ändert sich – und was bleibt gleich?</p>
+    </aside>
+    <section class="maincard" id="maincard" aria-label="Interaktive Konstruktion">
+      <div class="tools">
+        <button type="button" id="reset">↺ Zurücksetzen</button>
+        <button type="button" id="fit">Figuren einpassen</button>
+        <button type="button" id="full">⛶ Vollbild</button>
+      </div>
+      <div class="plot" id="plot">
+        <div class="ggb-host" id="ggb-element"></div>
+        <div class="load" id="load"><strong>GeoGebra wird geladen …</strong><span>Eine Internetverbindung wird benötigt.</span></div>
+      </div>
+      <div class="status" id="status" role="status" aria-live="polite">Ziehe A, B, C oder Z mit der Maus oder dem Finger.</div>
+    </section>
+  </div>
+  <p class="footer">Mathematik 9 · Zentrische Streckung · Zum Üben und Entdecken</p>
+</main>
+<script>
+(function(){
+  'use strict';
+  const $=id=>document.getElementById(id);
+  const slider=$('factor'), value=$('factorValue'), hint=$('insight'), load=$('load'), status=$('status');
+  const start={Z:[0,0], A:[1,1], B:[3,1], C:[2,2.5], k:1.9};
+  let api=null, created=false, lastWidth=0,lastHeight=0, lastK=start.k;
+  const fmt=n=>Number(n.toFixed(2)).toLocaleString('de-DE',{maximumFractionDigits:2});
+  function setUI(k){
+    lastK=k; slider.value=String(k);value.textContent=fmt(k);
+    document.querySelectorAll('[data-k]').forEach(b=>{let same=Math.abs(Number(b.dataset.k)-k)<0.0001;b.classList.toggle('active',same);b.setAttribute('aria-pressed',same?'true':'false');});
+    let msg;
+    if(Math.abs(k)<.00001)msg='Alle Bildpunkte fallen mit Z zusammen. Die Bildfigur schrumpft auf einen Punkt.';
+    else if(k<0)msg='Die Bildpunkte liegen auf der gegenüberliegenden Seite von Z.';
+    else msg='Die Bildpunkte liegen von Z aus in derselben Richtung.';
+    if(k!==0)msg+=' Flächenfaktor: '+fmt(k*k)+'.';
+    hint.textContent=msg;
+  }
+  function changeK(k){k=Math.max(-3,Math.min(3,Math.round(k*10)/10));setUI(k);if(api){try{api.setValue('k',k)}catch(e){status.textContent='Der Faktor konnte nicht aktualisiert werden.';}}}
+  slider.addEventListener('input',()=>changeK(Number(slider.value)));
+  document.querySelectorAll('[data-k]').forEach(b=>b.addEventListener('click',()=>changeK(Number(b.dataset.k))));
+  function hideOriginalControls(){if(!api)return;try{api.setVisible('k',false);api.setVisible('kAnzeige',false);for(const n of ['auftrag','auftrag1','auftrag2','auftrag3'])api.setVisible(n,false)}catch(e){}}
+  function getDims(){let el=$('plot');return {w:Math.max(320,Math.floor(el.clientWidth)),h:Math.max(330,Math.floor(el.clientHeight))}}
+  function fit(){if(!api)return;try{
+    const k=Number(api.getValue('k'));
+    const points=['Z','A','B','C'].map(n=>[api.getXcoord(n),api.getYcoord(n)]);
+    if(!points.every(p=>p.every(Number.isFinite)))throw Error('Koordinaten');
+    const z=points[0];const all=points.concat(points.slice(1).map(p=>[z[0]+k*(p[0]-z[0]),z[1]+k*(p[1]-z[1])]));
+    const xs=all.map(p=>p[0]), ys=all.map(p=>p[1]);let x0=Math.min(...xs),x1=Math.max(...xs),y0=Math.min(...ys),y1=Math.max(...ys);
+    const {w,h}=getDims();let ww=Math.max(5,(x1-x0)*1.3),hh=Math.max(4,(y1-y0)*1.3),ratio=w/h;
+    if(ww/hh<ratio)ww=hh*ratio;else hh=ww/ratio;
+    const mx=(x0+x1)/2,my=(y0+y1)/2;
+    api.setCoordSystem(mx-ww/2,mx+ww/2,my-hh/2,my+hh/2);
+    status.textContent='Ausgangsfigur und Bildfigur sind eingepasst.';
+  }catch(e){status.textContent='Die Figuren konnten nicht automatisch eingepasst werden.';}}
+  $('fit').addEventListener('click',fit);
+  $('reset').addEventListener('click',()=>{if(!api){setUI(start.k);return;}try{
+    for(const n of ['Z','A','B','C'])api.setCoords(n,...start[n]);
+    changeK(start.k);fit();status.textContent='Die Ausgangskonstruktion wurde wiederhergestellt.';
+  }catch(e){status.textContent='Zurücksetzen war nicht möglich.';}});
+  $('full').addEventListener('click',()=>{const card=$('maincard');let on=!card.classList.contains('fullscreen');card.classList.toggle('fullscreen',on);document.body.classList.toggle('full-active',on);$('full').textContent=on?'✕ Vollbild verlassen':'⛶ Vollbild';setTimeout(resize,50)});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&$('maincard').classList.contains('fullscreen'))$('full').click()});
+  function resize(){if(!api)return;const {w,h}=getDims();if(w===lastWidth&&h===lastHeight)return;lastWidth=w;lastHeight=h;try{if(typeof api.setSize==='function')api.setSize(w,h)}catch(e){}}
+  if(window.ResizeObserver)new ResizeObserver(()=>resize()).observe($('plot'));
+  window.addEventListener('resize',resize);
+  function init(){if(created)return;if(typeof window.GGBApplet!=='function'){load.innerHTML='<strong>GeoGebra konnte nicht geladen werden.</strong><span>Bitte die Internetverbindung prüfen und die Seite neu laden.</span>';return;}
+    created=true;let {w,h}=getDims();let params={
+      id:'streckung',appName:'classic',filename:'Zentrische_Streckung.ggb',width:w,height:h,
+      showToolBar:false,showMenuBar:false,showAlgebraInput:false,showResetIcon:false,
+      enableRightClick:false,enableShiftDragZoom:true,showZoomButtons:true,
+      allowStyleBar:false,showFullscreenButton:false,showLogging:false,
+      language:'de',useBrowserForJS:false,showStartTooltip:false,
+      appletOnLoad:function(ggb){api=ggb;load.hidden=true;hideOriginalControls();
+        try{setUI(Number(api.getValue('k')));api.registerObjectUpdateListener('k','onKChange');}catch(e){setUI(start.k)}
+        resize();fit();status.textContent='Fertig! Verschiebe die Punkte oder verändere k.';
+      }
+    };
+    window.onKChange=function(){if(!api)return;try{let k=Number(api.getValue('k'));if(Number.isFinite(k)&&Math.abs(k-lastK)>.00001)setUI(k)}catch(e){}};
+    try{new window.GGBApplet(params,true).inject('ggb-element');}
+    catch(e){load.innerHTML='<strong>Die Konstruktion konnte nicht geöffnet werden.</strong><span>Bitte prüfen, ob die GeoGebra-Datei im selben Verzeichnis liegt.</span>';}
+  }
+  setUI(start.k);window.addEventListener('load',init);
+})();
+</script>
+</body>
+</html>
