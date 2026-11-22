@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Zentrische Streckung</title>
+  <script src="https://www.geogebra.org/apps/deployggb.js"></script>
+  <style>
+    body { font: 1rem system-ui, sans-serif; margin: 24px; }
+    main { max-width: 1250px; margin: auto; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Zentrische Streckung</h1>
+    <p>Verschiebe A, B, C oder das Zentrum Z und ändere den Streckfaktor.</p>
+    <div class="geogebra-rahmen">
+      <div id="geogebra"></div>
+    </div>
+    <p><a href="./zentrische-streckung.ggb" download>GeoGebra-Datei herunterladen</a></p>
+  </main>
+  <script>
+    new GGBApplet({
+      appName: "classic",
+      filename: "./zentrische-streckung.ggb",
+      width: 1250,
+      height: 850,
+      language: "de",
+      scaleContainerClass: "geogebra-rahmen",
+      showToolBar: false,
+      showMenuBar: false,
+      showAlgebraInput: false,
+      showResetIcon: true
+    }, true).inject("geogebra");
+  </script>
+</body>
+</html>
